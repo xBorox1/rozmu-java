@@ -58,7 +58,9 @@ public class Main {
                 String message = input.getText();
                 System.out.println(message);
                 try {
-                    outputStream.writeChars(message);
+                    for(int i=0; i<message.length(); i++)
+                        outputStream.writeChar(message.charAt(i));
+                    outputStream.writeChar(' ');
                     outputStream.flush();
                     System.out.println("wysłano: "+message);
                 } catch (IOException e1) {
@@ -71,7 +73,8 @@ public class Main {
 
         while(true)
         {
-//            System.out.println("petla");
+            char messageFrom = inputStream.readChar();
+            text.setText(text.getText() + messageFrom);
         }
     }
 }
