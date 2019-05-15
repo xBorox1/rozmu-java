@@ -36,7 +36,10 @@ public class Main {
                 System.out.println("Clicked");
                 String message = input.getText();
                 try {
-                    outputStream.writeChars(message);
+                    for(int i=0;i<message.length();i++) {
+                        outputStream.writeChar(message.charAt(i));
+                    }
+                    outputStream.write(' ');
                     outputStream.flush();
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -60,9 +63,8 @@ public class Main {
         f.setVisible(true);//making the frame visible
 
         for(;;) {
-            String messageFrom = inputStream.readLine();
-            System.out.println(messageFrom);
-            text.setText(input.getText() + "\n" + messageFrom);
+            char messageFrom = inputStream.readChar();
+            text.setText(text.getText() + messageFrom);
         }
     }
 }
